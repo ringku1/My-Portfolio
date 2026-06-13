@@ -58,21 +58,38 @@ Open Graph / sitemap links are absolute and correct.
 - **Fonts** — Inter (sans) + JetBrains Mono (mono), configured in
   [`src/app/layout.tsx`](src/app/layout.tsx).
 
-## ☁️ Deploying to Vercel
+## ☁️ Deployment
 
-1. Push this repo to GitHub.
-2. Go to [vercel.com/new](https://vercel.com/new) and import the repository.
-3. Framework preset auto-detects **Next.js** — no extra config needed. Click **Deploy**.
-4. After the first deploy, copy your URL and set it as `SITE_URL` in `src/lib/site.ts`, then
-   redeploy so Open Graph / sitemap use the correct absolute URLs.
+- **Live:** https://my-portfolio-five-umber-85.vercel.app
+- **GitHub:** https://github.com/ringku1/My-Portfolio
+- **Vercel project:** `my-portfolio` (framework preset: **Next.js**; deployment protection **disabled** so the site is public).
 
-Or via CLI:
+### Enable auto-deploy on every `git push` (one-time, ~30s)
+
+The Vercel project currently deploys via the CLI. To make every push to `main` deploy
+automatically, connect the GitHub repo once:
+
+1. Open the project → **Settings → Git** at
+   [vercel.com/ringku1/my-portfolio/settings/git](https://vercel.com/dashboard).
+2. Click **Connect Git Repository**, install the **Vercel GitHub App** if prompted, and
+   select `ringku1/My-Portfolio`.
+
+After that, `git push` → automatic production deploy. (This step needs a browser sign-in,
+so it can't be scripted.)
+
+### Manual deploy (CLI)
 
 ```bash
 npm i -g vercel
-vercel          # preview deploy
-vercel --prod   # production deploy
+vercel              # preview deploy
+vercel --prod       # production deploy
 ```
+
+### Custom domain / URL changes
+
+If you add a custom domain (or the Vercel URL changes), update `SITE_URL` in
+[`src/lib/site.ts`](src/lib/site.ts) and redeploy so Open Graph, canonical, and sitemap
+links stay correct.
 
 ## 🗂️ Project structure
 
