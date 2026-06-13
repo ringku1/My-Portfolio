@@ -60,24 +60,20 @@ Open Graph / sitemap links are absolute and correct.
 
 ## ☁️ Deployment
 
-- **Live:** https://my-portfolio-five-umber-85.vercel.app
+- **Live:** https://ramendra-singha-portfolio.vercel.app
 - **GitHub:** https://github.com/ringku1/My-Portfolio
-- **Vercel project:** `my-portfolio` (framework preset: **Next.js**; deployment protection **disabled** so the site is public).
+- **Vercel project:** `my-portfolio` — framework preset **Next.js**, deployment protection **disabled** (public site).
 
-### Enable auto-deploy on every `git push` (one-time, ~30s)
+### Auto-deploy ✅
 
-The Vercel project currently deploys via the CLI. To make every push to `main` deploy
-automatically, connect the GitHub repo once:
+The GitHub repo is connected to Vercel, so **every push to `main` deploys to production
+automatically** — no manual step needed:
 
-1. Open the project → **Settings → Git** at
-   [vercel.com/ringku1/my-portfolio/settings/git](https://vercel.com/dashboard).
-2. Click **Connect Git Repository**, install the **Vercel GitHub App** if prompted, and
-   select `ringku1/My-Portfolio`.
+```bash
+git add -A && git commit -m "..." && git push   # → Vercel builds & deploys
+```
 
-After that, `git push` → automatic production deploy. (This step needs a browser sign-in,
-so it can't be scripted.)
-
-### Manual deploy (CLI)
+### Manual deploy (optional, CLI)
 
 ```bash
 npm i -g vercel
@@ -85,11 +81,11 @@ vercel              # preview deploy
 vercel --prod       # production deploy
 ```
 
-### Custom domain / URL changes
+### Changing the URL / adding a custom domain
 
 If you add a custom domain (or the Vercel URL changes), update `SITE_URL` in
-[`src/lib/site.ts`](src/lib/site.ts) and redeploy so Open Graph, canonical, and sitemap
-links stay correct.
+[`src/lib/site.ts`](src/lib/site.ts) and push — this keeps Open Graph, canonical, and
+sitemap links correct.
 
 ## 🗂️ Project structure
 
