@@ -49,11 +49,10 @@ export function Navbar() {
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
         <a
           href="#home"
-          className="font-mono text-lg font-bold tracking-tight"
+          className="font-mono text-lg font-bold tracking-tight text-gradient"
           aria-label="Back to top"
         >
-          <span className="text-gradient">RKS</span>
-          <span className="text-muted">.dev</span>
+          Home
         </a>
 
         {/* Desktop links */}

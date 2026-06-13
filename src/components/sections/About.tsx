@@ -21,26 +21,25 @@ export function About() {
               At a glance
             </h3>
             <dl className="mt-4 space-y-3 text-sm">
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted">Role</dt>
-                <dd className="text-right font-medium">Software Engineer</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted">Currently</dt>
-                <dd className="text-right font-medium">AppifyLab</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted">Focus</dt>
-                <dd className="text-right font-medium">Full-stack web</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted">Based in</dt>
-                <dd className="text-right font-medium">Sylhet, BD</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-muted">Problems solved</dt>
-                <dd className="text-right font-medium">1800+</dd>
-              </div>
+              {about.glance.map((row) => (
+                <div key={row.label} className="flex justify-between gap-4">
+                  <dt className="text-muted">{row.label}</dt>
+                  <dd className="text-right font-medium">
+                    {row.url ? (
+                      <a
+                        href={row.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-brand-400 hover:underline"
+                      >
+                        {row.value}
+                      </a>
+                    ) : (
+                      row.value
+                    )}
+                  </dd>
+                </div>
+              ))}
             </dl>
           </div>
         </Reveal>

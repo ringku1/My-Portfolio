@@ -26,13 +26,17 @@ export type IconName =
 export const profile = {
   name: "Ramendra Kumer Singha",
   title: "Software Engineer",
+  // Photo lives at public/ramendra.png (560×560). Replace that file to change it.
+  photo: "/ramendra.png",
   // Short, confident, no fake metrics.
   tagline:
-    "Full-stack software engineer with a competitive-programming backbone — I build clean, efficient web applications and enjoy solving hard problems.",
+    "Full-stack software engineer with a competitive-programming backbone. I build clean, efficient web applications, and I'm currently focused on backend development and system architecture — while actively learning system design.",
   location: "Sylhet, Bangladesh",
   email: "ringkuxinha@gmail.com",
   github: "https://github.com/ringku1",
   linkedin: "https://www.linkedin.com/in/ringku1/",
+  // Current employer (used in the hero badge, experience, and "at a glance").
+  company: { name: "AppifyLab", url: "https://www.appifylab.com/" },
   // Drop your PDF at  public/Ramendra_Kumer_Singha.pdf  for this button to work.
   resumeUrl: "/Ramendra_Kumer_Singha.pdf",
 };
@@ -45,8 +49,16 @@ export const about = {
   paragraphs: [
     "I'm a Computer Science & Engineering graduate from Sylhet Engineering College (CGPA 3.84/4.00) and a software engineer at AppifyLab, where I work across the frontend, backend, and database layers of production products.",
     "My foundation is competitive programming — 1800+ problems solved across Codeforces, CodeChef, AtCoder, LeetCode, CSES, and LightOJ. That background shapes how I write code: I care about correctness, efficient algorithms, and keeping things simple.",
-    "Day to day I build full-stack web applications with React, Next.js, and AdonisJS, and I'm comfortable owning a feature from database schema to UI.",
+    "Day to day I build full-stack web applications with React, Next.js, and AdonisJS. Right now I'm focused on backend development and system architecture, and I'm actively learning system design.",
   ],
+  // The "At a glance" card. Add a `url` to a row to render its value as a link.
+  glance: [
+    { label: "Role", value: "Software Engineer" },
+    { label: "Currently", value: "AppifyLab", url: "https://www.appifylab.com/" },
+    { label: "Focus", value: "Backend & system design" },
+    { label: "Based in", value: "Sylhet, BD" },
+    { label: "Problems solved", value: "1800+" },
+  ] as { label: string; value: string; url?: string }[],
 };
 
 /* -------------------------------------------------------------------------- */
@@ -65,6 +77,7 @@ export const experience: Experience[] = [
   {
     role: "Junior Software Engineer",
     company: "AppifyLab",
+    companyUrl: "https://www.appifylab.com/",
     period: "Nov 2025 — Present",
     current: true,
     points: [
@@ -75,6 +88,7 @@ export const experience: Experience[] = [
   {
     role: "Software Engineer Intern",
     company: "AppifyLab",
+    companyUrl: "https://www.appifylab.com/",
     period: "Jun 2025 — Oct 2025",
     points: [
       "Learned and applied frontend and backend development for production systems.",
@@ -211,7 +225,7 @@ export type SkillGroup = {
 export const skills: SkillGroup[] = [
   {
     title: "Languages",
-    skills: ["C++", "C#", "Python", "Java", "JavaScript", "TypeScript"],
+    skills: ["C++", "C#", "JavaScript", "TypeScript"],
   },
   {
     title: "Frontend & Backend",
@@ -223,7 +237,7 @@ export const skills: SkillGroup[] = [
   },
   {
     title: "Tools",
-    skills: ["Git", "GitHub", "Docker", "Postman", "VS Code"],
+    skills: ["Git", "Docker", "Postman", "VS Code"],
   },
 ];
 
