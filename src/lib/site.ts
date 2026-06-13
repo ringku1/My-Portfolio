@@ -1,5 +1,5 @@
 /**
- * ⚠️ Update this to your real deployed URL after deploying to Vercel.
- * Used for SEO canonical links, Open Graph, sitemap, and robots.txt.
+ * Public URL the site is deployed at — used for SEO canonical links, Open
+ * Graph, sitemap, and robots.txt. Update this if you add a custom domain.
  */
-export const SITE_URL = "https://ramendra-singha.vercel.app";
+export const SITE_URL = "https://my-portfolio-five-umber-85.vercel.app";
