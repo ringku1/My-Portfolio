@@ -60,7 +60,7 @@ Open Graph / sitemap links are absolute and correct.
 
 ## ☁️ Deployment
 
-- **Live:** https://ramendra-singha-portfolio.vercel.app
+- **Live:** https://ramendra-kumer-singha.vercel.app
 - **GitHub:** https://github.com/ringku1/My-Portfolio
 - **Vercel project:** `my-portfolio` — framework preset **Next.js**, deployment protection **disabled** (public site).
 
