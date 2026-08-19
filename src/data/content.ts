@@ -47,7 +47,7 @@ export const profile = {
 export const about = {
   // Written from your resume. Paste LinkedIn "About" text here to enrich it.
   paragraphs: [
-    "I'm a Computer Science & Engineering graduate from Sylhet Engineering College (CGPA 3.84/4.00) and a software engineer at AppifyLab, where I work across the frontend, backend, and database layers of production products.",
+    "I'm a Computer Science & Engineering graduate from Sylhet Engineering College, SUST (CGPA 3.84/4.00) and a software engineer at AppifyLab, where I work across the frontend, backend, and database layers of production products.",
     "My foundation is competitive programming — 1800+ problems solved across Codeforces, CodeChef, AtCoder, LeetCode, CSES, and LightOJ. That background shapes how I write code: I care about correctness, efficient algorithms, and keeping things simple.",
     "Day to day I build full-stack web applications with React, Next.js, and AdonisJS. Right now I'm focused on backend development and system architecture, and I'm actively learning system design.",
   ],
@@ -246,7 +246,7 @@ export const skills: SkillGroup[] = [
 /* -------------------------------------------------------------------------- */
 export const education = [
   {
-    institution: "Sylhet Engineering College",
+    institution: "Sylhet Engineering College, SUST",
     location: "Sylhet, Bangladesh",
     degree: "B.Sc. in Computer Science & Engineering",
     period: "Jan 2020 — Jul 2025",
