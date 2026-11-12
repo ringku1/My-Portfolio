@@ -6,9 +6,16 @@ toggle, fully responsive, accessible, and SEO-ready.
 
 ## ✨ Features
 
-- Single page with smooth-scroll sections + sticky nav with scroll-spy
+- Single page with smooth-scroll sections, sticky nav with scroll-spy (sliding
+  active indicator) and a reading-progress bar
 - Sections: Hero · About · Experience (timeline) · Projects · Competitive Programming · Skills · Education · Contact
-- Dark/light theme toggle (`next-themes`), dark by default
+- Dark/light theme toggle (`next-themes`), dark by default — accent colors tuned
+  for readable contrast in both themes
+- Mobile menu with scroll lock, tap-outside and Escape to close; floating back-to-top button
+- Clickable project cards with explicit Live / Source links (or a "Private repo" label)
+- One-click "Copy email" in the contact section
+- Accessible: skip-to-content link, visible keyboard focus, ≥32px tap targets
+- Responsive from 320px phones to wide desktops
 - Subtle, reduced-motion-aware animations (Framer Motion)
 - SEO: metadata, Open Graph (with auto-generated OG image), `sitemap.xml`, `robots.txt`, favicon
 - **All content lives in one file** — [`src/data/content.ts`](src/data/content.ts)
@@ -28,24 +35,26 @@ npm run start    # serve the production build
 npm run lint     # eslint
 ```
 
+> **Troubleshooting:** if `next dev`/`next build` hangs at "Starting…" or dies with
+> `SIGBUS` / "Bus error", the native SWC binary in `node_modules` is corrupt —
+> reinstall with `rm -rf node_modules .next && npm ci`.
+
 ## ✏️ Editing content
 
 Everything you'd want to change — bio, experience, projects, skills, competitive-programming
 stats, links — is in **[`src/data/content.ts`](src/data/content.ts)**. You shouldn't need to
 touch any component. Leaving a link as an empty string (`""`) simply hides that link/button.
 
-### ⚠️ Content you still need to fill in
+How a few fields behave:
 
-These were **not** auto-discoverable from your public GitHub, so they're left as `""` with
-`// ⚠️ TODO` comments. Paste the real values into `src/data/content.ts`:
-
-| What | Where in `content.ts` | Notes |
-|------|------------------------|-------|
-| **Resume PDF** | — | Drop your file at `public/Ramendra_Kumer_Singha.pdf` so the "Download Resume" button works. (Or change `profile.resumeUrl`.) |
-| **Dictionary project** links | `projects[0].github`, `projects[0].live` | Not found under `github.com/ringku1` — add the repo + Vercel URLs. |
-| **Webinar App** repo link | `projects[2].github` | No public repo found (likely private) — add the URL or leave `""` to hide it. |
-| **Competitive profile** URLs | `cp.platforms[*].url` | Add your Codeforces / CodeChef / other-judge profile URLs to make the cards clickable. |
-| **LinkedIn About** text | `about.paragraphs` | LinkedIn is login-walled; paste your About/headline to enrich the bio if you like. |
+| Field | Effect |
+|-------|--------|
+| `projects[*].featured` | Featured project gets a "Featured" badge and a wider card (spans 2 columns). |
+| `projects[*].live` / `github` | The whole card links to `live` (or `github` if there's no live URL). With no `github`, the card shows a "Private repo" label; with neither, the card isn't clickable. |
+| `projects[*].liveLabel` | Text for the live link, e.g. "Play now" (defaults to "Live demo"). |
+| `experience` | List most recent first. Consecutive roles at the same `company` are grouped into one card as a promotion timeline; mark the ongoing role `current: true`. |
+| `cp.highlights[0]`, `cp.platforms[0]` | Also feed the quick-facts row in the hero (e.g. "2000+ problems solved", "Codeforces Specialist"). |
+| `profile.resumeUrl` | The PDF in `public/` used by every "Resume" button. |
 
 After deploying, also update **`src/lib/site.ts`** (`SITE_URL`) to your real domain so SEO /
 Open Graph / sitemap links are absolute and correct.
@@ -53,9 +62,12 @@ Open Graph / sitemap links are absolute and correct.
 ## 🎨 Customizing the look
 
 - **Accent color** — currently Indigo → Violet. Change the `brand` palette in
-  [`tailwind.config.ts`](tailwind.config.ts) and the gradient stops in
-  [`src/app/globals.css`](src/app/globals.css) (`.text-gradient`).
-- **Fonts** — Inter (sans) + JetBrains Mono (mono), configured in
+  [`tailwind.config.ts`](tailwind.config.ts), then the per-theme tokens in
+  [`src/app/globals.css`](src/app/globals.css): `--accent` (accent text/icons, as
+  `R G B`) and `--gradient-from` / `--gradient-to` (gradient text), each defined
+  once for light (`:root`) and once for dark (`.dark`). Use `text-accent` for
+  accent-colored text so it stays readable in both themes.
+- **Fonts** — Inter (sans) + JetBrains Mono (mono), self-hosted via `next/font` in
   [`src/app/layout.tsx`](src/app/layout.tsx).
 
 ## ☁️ Deployment
@@ -92,7 +104,7 @@ sitemap links correct.
 ```
 src/
 ├── app/
-│   ├── layout.tsx            # root layout, fonts, SEO metadata, theme provider
+│   ├── layout.tsx            # root layout, fonts (next/font), SEO metadata, skip link
 │   ├── page.tsx              # composes all sections
 │   ├── globals.css           # theme tokens + base styles
 │   ├── icon.svg              # favicon (monogram)
@@ -101,6 +113,7 @@ src/
 ├── components/
 │   ├── Navbar.tsx, Footer.tsx, ThemeToggle.tsx, ThemeProvider.tsx
 │   ├── Reveal.tsx, Section.tsx, SectionHeading.tsx, SocialLinks.tsx
+│   ├── BackToTop.tsx, CopyEmailButton.tsx
 │   └── sections/             # Hero, About, Experience, Projects, ...
 ├── data/
 │   └── content.ts            # 👈 single source of truth for all content

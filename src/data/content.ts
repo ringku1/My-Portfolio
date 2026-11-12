@@ -5,8 +5,8 @@
  *  Edit this file to update the portfolio. You should NOT need to touch any
  *  component to change text, links, projects, skills, etc.
  *
- *  Anything marked  ⚠️ TODO  needs a real value from you — see README "Content
- *  you still need to fill in". Leaving a link as "" simply hides that link/button.
+ *  Leaving a link as "" simply hides that link/button. See README "Editing
+ *  content" for how fields like `featured` and grouped experience behave.
  * =============================================================================
  */
 
