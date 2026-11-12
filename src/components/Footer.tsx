@@ -10,7 +10,7 @@ export function Footer() {
         <div className="text-center sm:text-left">
           <p className="text-sm font-medium">{profile.name}</p>
           <p className="mt-1 text-xs text-muted">
-            © {year} · Built with Next.js, Tailwind CSS &amp; Framer Motion
+            © {year}
           </p>
         </div>
         <SocialLinks size="sm" />
