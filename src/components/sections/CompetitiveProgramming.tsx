@@ -88,7 +88,7 @@ export function CompetitiveProgramming() {
                     href={l.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 rounded-md bg-soft px-2.5 py-1 font-mono text-xs text-muted transition-colors hover:text-accent"
+                    className="inline-flex min-h-8 items-center gap-1 rounded-md bg-soft px-3 py-1.5 font-mono text-xs text-muted transition-colors hover:text-accent"
                   >
                     {l.name}
                     <ArrowUpRight className="h-3 w-3" />

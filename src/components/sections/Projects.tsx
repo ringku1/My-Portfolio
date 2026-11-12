@@ -81,13 +81,13 @@ function ProjectCard({ project }: { project: Project }) {
       </ul>
 
       {/* Explicit links sit above the stretched link (z-10) so each stays clickable. */}
-      <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-default pt-4 text-sm">
+      <div className="mt-5 flex flex-wrap items-center gap-x-5 border-t border-default pt-2 text-sm">
         {live && (
           <a
             href={live}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative z-10 inline-flex items-center gap-1 font-medium text-accent hover:underline"
+            className="relative z-10 inline-flex min-h-10 items-center gap-1 font-medium text-accent hover:underline"
           >
             {liveLabel ?? "Live demo"}
             <ArrowUpRight className="h-4 w-4" />
@@ -99,14 +99,14 @@ function ProjectCard({ project }: { project: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${title} source code on GitHub`}
-            className="relative z-10 inline-flex items-center gap-1.5 font-medium text-muted transition-colors hover:text-accent"
+            className="relative z-10 inline-flex min-h-10 items-center gap-1.5 font-medium text-muted transition-colors hover:text-accent"
           >
             <Github className="h-4 w-4" />
             Source
           </a>
         )}
         {!github && (
-          <span className="inline-flex items-center gap-1.5 text-muted">
+          <span className="inline-flex min-h-10 items-center gap-1.5 text-muted">
             <Lock className="h-3.5 w-3.5" />
             Private repo
           </span>
@@ -117,6 +117,11 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export function Projects() {
+  // In the 2-column (tablet) grid, a featured card fills a whole row. If that
+  // leaves the last card alone on its row, let it span the row too.
+  const cells = projects.reduce((n, p) => n + (p.featured ? 2 : 1), 0);
+  const lastIsOrphan = cells % 2 === 1;
+
   return (
     <Section id="projects">
       <SectionHeading index="03" subtitle="Projects" title="Things I've built" />
@@ -125,7 +130,13 @@ export function Projects() {
           <Reveal
             key={project.title}
             delay={(i % 3) * 0.06}
-            className={project.featured ? "sm:col-span-2" : ""}
+            className={
+              project.featured
+                ? "sm:col-span-2"
+                : lastIsOrphan && i === projects.length - 1
+                  ? "sm:col-span-2 lg:col-span-1"
+                  : ""
+            }
           >
             <ProjectCard project={project} />
           </Reveal>

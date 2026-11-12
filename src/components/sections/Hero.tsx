@@ -34,7 +34,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen min-h-[100svh] items-center overflow-hidden pt-24 pb-16 sm:pb-20 lg:pt-16 lg:pb-0"
+      className="relative flex min-h-screen min-h-[100svh] items-center overflow-hidden pt-20 pb-14 sm:pt-24 sm:pb-20 lg:pt-16 lg:pb-0"
     >
       {/* Ambient gradient glow */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -43,7 +43,7 @@ export function Hero() {
       </div>
 
       <div className="mx-auto w-full max-w-5xl px-5">
-        <div className="flex flex-col-reverse gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+        <div className="flex flex-col-reverse gap-6 sm:gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
           {/* Text column */}
           <motion.div
             variants={container}
@@ -74,7 +74,7 @@ export function Hero() {
 
             <motion.h1
               variants={item}
-              className="mt-6 text-[2.5rem] font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+              className="mt-5 text-[2.5rem] font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
             >
               {profile.name}
             </motion.h1>
@@ -88,7 +88,7 @@ export function Hero() {
 
             <motion.p
               variants={item}
-              className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
+              className="mt-4 max-w-2xl text-base leading-relaxed sm:mt-6 text-muted sm:text-lg"
             >
               {profile.tagline}
             </motion.p>
@@ -96,7 +96,7 @@ export function Hero() {
             {/* Quick credibility facts */}
             <motion.ul
               variants={item}
-              className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted"
+              className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted sm:mt-5"
             >
               <li className="flex items-center gap-1.5">
                 <MapPin className="h-4 w-4 flex-none text-accent" />
@@ -112,24 +112,27 @@ export function Hero() {
 
             <motion.div
               variants={item}
-              className="mt-8 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+              className="mt-7 flex flex-col gap-5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
             >
-              {/* Buttons share a row when they fit, and go full-width when they don't. */}
-              <div className="flex w-full flex-wrap gap-3 sm:w-auto sm:gap-4">
+              {/* Buttons share a row (full-width halves on phones). */}
+              <div className="grid w-full grid-cols-2 gap-3 sm:flex sm:w-auto sm:gap-4">
                 <a
                   href={profile.resumeUrl}
                   download
-                  className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-gradient-to-r from-brand-500 to-violet-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-transform hover:-translate-y-0.5 sm:flex-none"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-gradient-to-r from-brand-500 to-violet-500 px-3 py-3 sm:px-5 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-transform hover:-translate-y-0.5 sm:flex-none"
                 >
-                  <Download className="h-4 w-4" />
-                  Download Resume
+                  <Download className="h-4 w-4 flex-none" />
+                  <span className="sm:hidden">Resume</span>
+                  <span className="hidden sm:inline">Download Resume</span>
                 </a>
                 <a
                   href="#projects"
-                  className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-default bg-card px-5 py-3 text-sm font-semibold transition-colors hover:border-brand-500/50 hover:text-accent sm:flex-none"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-default bg-card px-3 py-3 text-sm font-semibold transition-colors hover:border-brand-500/50 hover:text-accent sm:px-5"
                 >
-                  View Projects
-                  <ArrowDown className="h-4 w-4" />
+                  <span>
+                    <span className="hidden sm:inline">View </span>Projects
+                  </span>
+                  <ArrowDown className="h-4 w-4 flex-none" />
                 </a>
               </div>
               <SocialLinks className="sm:ml-1" />
@@ -141,20 +144,20 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto shrink-0 lg:mx-0"
+            className="shrink-0"
           >
             <div className="relative">
               <div
                 aria-hidden
-                className="absolute -inset-3 rounded-full bg-gradient-to-tr from-brand-500/40 to-violet-500/40 blur-2xl"
+                className="absolute -inset-2 rounded-full sm:-inset-3 bg-gradient-to-tr from-brand-500/40 to-violet-500/40 blur-2xl"
               />
-              <div className="relative h-44 w-44 overflow-hidden rounded-full ring-2 ring-brand-500/40 sm:h-56 sm:w-56 lg:h-72 lg:w-72">
+              <div className="relative h-28 w-28 overflow-hidden rounded-full ring-2 ring-brand-500/40 sm:h-40 sm:w-40 lg:h-72 lg:w-72">
                 <Image
                   src={profile.photo}
                   alt={`Portrait of ${profile.name}`}
                   fill
                   priority
-                  sizes="(max-width: 1024px) 14rem, 18rem"
+                  sizes="(max-width: 640px) 7rem, (max-width: 1024px) 10rem, 18rem"
                   className="object-cover"
                 />
               </div>
