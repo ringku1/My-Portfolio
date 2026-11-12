@@ -23,10 +23,11 @@ export function SocialLinks({ size = "md", className = "" }: SocialLinksProps) {
           key={label}
           href={href}
           aria-label={label}
+          title={label}
           {...(external
             ? { target: "_blank", rel: "noopener noreferrer" }
             : {})}
-          className={`inline-flex ${box} items-center justify-center rounded-xl border border-default bg-card text-muted transition-all hover:-translate-y-0.5 hover:border-brand-500/50 hover:text-brand-400`}
+          className={`inline-flex ${box} items-center justify-center rounded-xl border border-default bg-card text-muted transition-all hover:-translate-y-0.5 hover:border-brand-500/50 hover:text-accent`}
         >
           <Icon className={icon} />
         </a>

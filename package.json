@@ -2,7 +2,7 @@
   "name": "ramendra-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Personal portfolio of Ramendra Kumer Singha — Software Engineer",
+  "description": "Personal portfolio of Ramendra Kumer Singha — Assistant Software Engineer",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

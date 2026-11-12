@@ -12,7 +12,7 @@ export function Education() {
         {education.map((edu, i) => (
           <Reveal key={edu.institution} delay={i * 0.08}>
             <div className="flex flex-col gap-4 rounded-2xl border border-default bg-card p-6 sm:flex-row sm:items-center">
-              <div className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-brand-500/10 text-brand-400">
+              <div className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-brand-500/10 text-accent">
                 <GraduationCap className="h-6 w-6" />
               </div>
               <div className="flex-1">
@@ -23,7 +23,7 @@ export function Education() {
                 <p className="mt-0.5 text-sm text-muted">
                   {edu.degree} · {edu.location}
                 </p>
-                <p className="mt-2 inline-flex rounded-md bg-brand-500/10 px-2.5 py-1 text-sm font-medium text-brand-300">
+                <p className="mt-2 inline-flex rounded-md bg-brand-500/10 px-2.5 py-1 text-sm font-medium text-accent">
                   {edu.detail}
                 </p>
               </div>

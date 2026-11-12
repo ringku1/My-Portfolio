@@ -7,7 +7,7 @@ export function About() {
   return (
     <Section id="about">
       <SectionHeading index="01" subtitle="About" title="A bit about me" />
-      <div className="grid gap-10 md:grid-cols-5">
+      <div className="grid gap-8 md:grid-cols-5 md:gap-10">
         <div className="space-y-4 text-base leading-relaxed text-muted md:col-span-3">
           {about.paragraphs.map((p, i) => (
             <Reveal key={i} delay={i * 0.05}>
@@ -16,8 +16,8 @@ export function About() {
           ))}
         </div>
         <Reveal delay={0.1} className="md:col-span-2">
-          <div className="rounded-2xl border border-default bg-card p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-400">
+          <div className="rounded-2xl border border-default bg-card p-5 sm:p-6">
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-accent">
               At a glance
             </h3>
             <dl className="mt-4 space-y-3 text-sm">
@@ -30,7 +30,7 @@ export function About() {
                         href={row.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-brand-400 hover:underline"
+                        className="text-accent hover:underline"
                       >
                         {row.value}
                       </a>

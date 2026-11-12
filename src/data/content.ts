@@ -25,7 +25,7 @@ export type IconName =
 /* -------------------------------------------------------------------------- */
 export const profile = {
   name: "Ramendra Kumer Singha",
-  title: "Software Engineer",
+  title: "Assistant Software Engineer",
   // Photo lives at public/ramendra.png (560×560). Replace that file to change it.
   photo: "/ramendra.png",
   // Short, confident, no fake metrics.
@@ -47,17 +47,17 @@ export const profile = {
 export const about = {
   // Written from your resume. Paste LinkedIn "About" text here to enrich it.
   paragraphs: [
-    "I'm a Computer Science & Engineering graduate from Sylhet Engineering College, SUST (CGPA 3.84/4.00) and a software engineer at AppifyLab, where I work across the frontend, backend, and database layers of production products.",
-    "My foundation is competitive programming — 1800+ problems solved across Codeforces, CodeChef, AtCoder, LeetCode, CSES, and LightOJ. That background shapes how I write code: I care about correctness, efficient algorithms, and keeping things simple.",
+    "I'm a Computer Science & Engineering graduate from Sylhet Engineering College, SUST (CGPA 3.84/4.00) and an Assistant Software Engineer at AppifyLab, where I work across the frontend, backend, and database layers of production products.",
+    "My foundation is competitive programming — 2000+ problems solved across Codeforces, CodeChef, AtCoder, LeetCode, CSES, and LightOJ. That background shapes how I write code: I care about correctness, efficient algorithms, and keeping things simple.",
     "Day to day I build full-stack web applications with React, Next.js, and AdonisJS. Right now I'm focused on backend development and system architecture, and I'm actively learning system design.",
   ],
   // The "At a glance" card. Add a `url` to a row to render its value as a link.
   glance: [
-    { label: "Role", value: "Software Engineer" },
+    { label: "Role", value: "Assistant Software Engineer" },
     { label: "Currently", value: "AppifyLab", url: "https://www.appifylab.com/" },
     { label: "Focus", value: "Backend & system design" },
     { label: "Based in", value: "Sylhet, BD" },
-    { label: "Problems solved", value: "1800+" },
+    { label: "Problems solved", value: "2000+" },
   ] as { label: string; value: string; url?: string }[],
 };
 
@@ -75,14 +75,23 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Junior Software Engineer",
+    role: "Assistant Software Engineer",
     company: "AppifyLab",
     companyUrl: "https://www.appifylab.com/",
-    period: "Nov 2025 — Present",
+    period: "Jun 2026 — Present",
     current: true,
     points: [
       "Building new features and resolving issues across EzyCourse and EzyStudio.",
       "Working end to end — frontend, backend, and database — within production codebases.",
+    ],
+  },
+  {
+    role: "Junior Software Engineer",
+    company: "AppifyLab",
+    companyUrl: "https://www.appifylab.com/",
+    period: "Nov 2025 — May 2026",
+    points: [
+      "Shipped features and bug fixes for EzyCourse and EzyStudio in production.",
     ],
   },
   {
@@ -112,7 +121,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Bishnupriya Manipuri → English Dictionary",
+    title: "Bishnupriya Manipuri - English Dictionary",
     description:
       "A React + Vite web app translating Bishnupriya Manipuri words to English — diacritic-aware fuzzy search (Fuse.js) over 40,000+ entries, with live suggestions, keyboard navigation, and light/dark themes.",
     tags: ["React", "Vite", "Fuse.js", "JavaScript", "CSS"],
@@ -129,6 +138,33 @@ export const projects: Project[] = [
     github: "https://github.com/ringku1/bloodbridge-bd",
     live: "https://blood-bridge-admin-dev.vercel.app",
     liveLabel: "Admin demo",
+  },
+  {
+    title: "Dusk Duel",
+    description:
+      "A browser sword-duel game: silhouette swordsmen, six arenas with their own weather and rules, a six-rival tournament ladder, coins and gear, and local two-player. Plays on keyboard, gamepad, or touch — no build step or dependencies, just canvas rendering and WebAudio-synthesized sound.",
+    tags: ["JavaScript", "Canvas", "WebAudio", "Gamepad API", "HTML", "CSS"],
+    // Repo is private — shown with the live link only.
+    github: "",
+    live: "https://sword-duel-by-ringku.vercel.app/",
+    liveLabel: "Play now",
+  },
+  {
+    title: "mama — Claude Code Skill",
+    description:
+      "A goal-based work loop for Claude Code: it studies the codebase, asks one batch of questions, plans wide parallel work, then builds → verifies → fixes until every acceptance criterion has evidence. Installs as a plugin or one-liner on macOS, Linux, and Windows.",
+    tags: ["Python", "Shell", "PowerShell", "Claude Code", "AI Agents"],
+    github: "https://github.com/ringku1/claude-mama",
+    live: "",
+  },
+  {
+    title: "Roast My Code",
+    description:
+      "Paste a code snippet, pick a roast level (Mild, Medium, or Savage), and get it roasted by AI as the response streams in — followed by real, actionable fixes.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini API"],
+    // Repo is private — add a URL here to surface it.
+    github: "",
+    live: "",
   },
   {
     title: "Webinar App",
@@ -172,7 +208,7 @@ export type CpPlatform = {
 export const cp = {
   // Headline stats shown as big badges.
   highlights: [
-    { value: "1800+", label: "Problems solved" },
+    { value: "2000+", label: "Problems solved" },
     { value: "6", label: "Online judges" },
     { value: "1458", label: "Codeforces max (Specialist)" },
     { value: "1686", label: "CodeChef max (3★)" },
@@ -197,7 +233,7 @@ export const cp = {
   ] as CpPlatform[],
   // Additional judges shown as one card with linked chips.
   otherJudges: {
-    solved: "500+ problems",
+    solved: "600+ problems",
     accent: "from-emerald-500 to-teal-500",
     links: [
       { name: "AtCoder", url: "https://atcoder.jp/users/ringku" },
@@ -207,7 +243,7 @@ export const cp = {
     ],
   },
   achievements: [
-    "Solved 1800+ algorithmic problems across multiple online judges",
+    "Solved 2000+ algorithmic problems across multiple online judges",
     "Completed an Advanced DSA & Competitive Programming workshop",
     "Participated in SUST IUPC 2024",
     "Competitive Programming Trainer & Contest Organizer — SEC Programming Club (2022–2025)",

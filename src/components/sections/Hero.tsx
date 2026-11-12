@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Download, MapPin } from "lucide-react";
-import { profile } from "@/data/content";
+import { ArrowDown, Code2, Download, MapPin, Trophy } from "lucide-react";
+import { cp, profile } from "@/data/content";
 import { SocialLinks } from "@/components/SocialLinks";
 
 const container = {
@@ -18,6 +18,14 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 };
 
+// Pulled from the competitive-programming data so numbers stay in one place.
+const heroFacts = [
+  { Icon: Code2, text: `${cp.highlights[0].value} ${cp.highlights[0].label.toLowerCase()}` },
+  ...(cp.platforms[0]
+    ? [{ Icon: Trophy, text: `${cp.platforms[0].name} ${cp.platforms[0].rank}` }]
+    : []),
+];
+
 export function Hero() {
   // Center partition line fades out as you scroll down, returns near the top.
   const { scrollY } = useScroll();
@@ -26,7 +34,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden pt-24 pb-20 lg:pt-16 lg:pb-0"
+      className="relative flex min-h-screen min-h-[100svh] items-center overflow-hidden pt-24 pb-16 sm:pb-20 lg:pt-16 lg:pb-0"
     >
       {/* Ambient gradient glow */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -45,26 +53,28 @@ export function Hero() {
           >
             <motion.p
               variants={item}
-              className="inline-flex items-center gap-2 rounded-full border border-default bg-card px-3 py-1 text-sm text-muted"
+              className="inline-flex max-w-full items-center gap-2 rounded-2xl border border-default bg-card px-3 py-1 text-xs text-muted sm:rounded-full sm:text-sm"
             >
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2 w-2 flex-none">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-500" />
               </span>
-              Junior Software Engineer @{" "}
-              <a
-                href={profile.company.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-brand-400 hover:underline"
-              >
-                {profile.company.name}
-              </a>
+              <span>
+                Currently at{" "}
+                <a
+                  href={profile.company.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-accent hover:underline"
+                >
+                  {profile.company.name}
+                </a>
+              </span>
             </motion.p>
 
             <motion.h1
               variants={item}
-              className="mt-6 text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
+              className="mt-6 text-[2.5rem] font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
             >
               {profile.name}
             </motion.h1>
@@ -83,33 +93,46 @@ export function Hero() {
               {profile.tagline}
             </motion.p>
 
-            <motion.div
+            {/* Quick credibility facts */}
+            <motion.ul
               variants={item}
-              className="mt-4 flex items-center gap-2 text-sm text-muted"
+              className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted"
             >
-              <MapPin className="h-4 w-4 text-brand-400" />
-              {profile.location}
-            </motion.div>
+              <li className="flex items-center gap-1.5">
+                <MapPin className="h-4 w-4 flex-none text-accent" />
+                {profile.location}
+              </li>
+              {heroFacts.map(({ Icon, text }) => (
+                <li key={text} className="flex items-center gap-1.5">
+                  <Icon className="h-4 w-4 flex-none text-accent" />
+                  {text}
+                </li>
+              ))}
+            </motion.ul>
 
             <motion.div
               variants={item}
-              className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4"
+              className="mt-8 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
             >
-              <a
-                href={profile.resumeUrl}
-                download
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-500 to-violet-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-transform hover:-translate-y-0.5"
-              >
-                <Download className="h-4 w-4" />
-                Download Resume
-              </a>
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 rounded-xl border border-default bg-card px-5 py-3 text-sm font-semibold transition-colors hover:border-brand-500/50 hover:text-brand-400"
-              >
-                View Projects
-              </a>
-              <SocialLinks className="ml-1" />
+              {/* Buttons share a row when they fit, and go full-width when they don't. */}
+              <div className="flex w-full flex-wrap gap-3 sm:w-auto sm:gap-4">
+                <a
+                  href={profile.resumeUrl}
+                  download
+                  className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-gradient-to-r from-brand-500 to-violet-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-transform hover:-translate-y-0.5 sm:flex-none"
+                >
+                  <Download className="h-4 w-4" />
+                  Download Resume
+                </a>
+                <a
+                  href="#projects"
+                  className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-default bg-card px-5 py-3 text-sm font-semibold transition-colors hover:border-brand-500/50 hover:text-accent sm:flex-none"
+                >
+                  View Projects
+                  <ArrowDown className="h-4 w-4" />
+                </a>
+              </div>
+              <SocialLinks className="sm:ml-1" />
             </motion.div>
           </motion.div>
 

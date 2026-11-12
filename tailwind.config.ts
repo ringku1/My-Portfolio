@@ -10,6 +10,11 @@ const config: Config = {
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       colors: {
+        // Theme-aware accent for text/icons: indigo-600 on light, indigo-400 on
+        // dark — keeps accent text readable (WCAG AA) in both themes.
+        accent: "rgb(var(--accent) / <alpha-value>)",
+        // Page background as a color, so opacity modifiers work (bg-page/80).
+        page: "rgb(var(--bg-rgb) / <alpha-value>)",
         // Indigo → Violet accent system
         brand: {
           50: "#eef2ff",

@@ -14,11 +14,11 @@ export function CompetitiveProgramming() {
       />
 
       {/* Headline stat badges */}
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {cp.highlights.map((stat, i) => (
           <Reveal key={stat.label} delay={i * 0.06}>
-            <div className="rounded-2xl border border-default bg-card p-5 text-center">
-              <div className="text-3xl font-bold text-gradient sm:text-4xl">
+            <div className="flex h-full flex-col justify-center rounded-2xl border border-default bg-card px-3 py-4 text-center sm:p-5">
+              <div className="text-2xl font-bold text-gradient sm:text-4xl">
                 {stat.value}
               </div>
               <div className="mt-1 text-xs text-muted sm:text-sm">
@@ -39,7 +39,7 @@ export function CompetitiveProgramming() {
                   className={`inline-block h-2.5 w-2.5 rounded-full bg-gradient-to-r ${p.accent}`}
                 />
                 {p.url && (
-                  <ArrowUpRight className="h-4 w-4 text-muted transition-colors group-hover:text-brand-400" />
+                  <ArrowUpRight className="h-4 w-4 text-muted transition-colors group-hover:text-accent" />
                 )}
               </div>
               <h3 className="mt-4 text-lg font-semibold">{p.name}</h3>
@@ -88,7 +88,7 @@ export function CompetitiveProgramming() {
                     href={l.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 rounded-md bg-soft px-2.5 py-1 font-mono text-xs text-muted transition-colors hover:text-brand-400"
+                    className="inline-flex items-center gap-1 rounded-md bg-soft px-2.5 py-1 font-mono text-xs text-muted transition-colors hover:text-accent"
                   >
                     {l.name}
                     <ArrowUpRight className="h-3 w-3" />
@@ -103,7 +103,7 @@ export function CompetitiveProgramming() {
       {/* Achievements */}
       <Reveal delay={0.1}>
         <div className="mt-6 rounded-2xl border border-default bg-card p-6">
-          <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-brand-400">
+          <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-accent">
             <Trophy className="h-4 w-4" />
             Achievements
           </h3>
