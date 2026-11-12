@@ -162,9 +162,10 @@ export const projects: Project[] = [
     description:
       "Paste a code snippet, pick a roast level (Mild, Medium, or Savage), and get it roasted by AI as the response streams in — followed by real, actionable fixes.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini API"],
-    // Repo is private — add a URL here to surface it.
+    // Repo is private — shown with the live link only.
     github: "",
-    live: "",
+    live: "https://roast-my-code-please.vercel.app/",
+    liveLabel: "Try it",
   },
   {
     title: "Webinar App",
