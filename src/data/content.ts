@@ -117,6 +117,8 @@ export type Project = {
   live?: string;
   liveLabel?: string;
   featured?: boolean;
+  /** Short status note shown on the card, e.g. "App coming soon". */
+  status?: string;
 };
 
 export const projects: Project[] = [
@@ -125,19 +127,22 @@ export const projects: Project[] = [
     description:
       "A React + Vite web app translating Bishnupriya Manipuri words to English — diacritic-aware fuzzy search (Fuse.js) over 40,000+ entries, with live suggestions, keyboard navigation, and light/dark themes.",
     tags: ["React", "Vite", "Fuse.js", "JavaScript", "CSS"],
-    github: "https://github.com/ringku1/Bishnupriya-Manipuri-Language-Dictionary",
+    // Repo is private — shown with the live link only.
+    github: "",
     live: "https://bishnupriya-manipuri-language-dictionary.vercel.app/",
     liveLabel: "Live demo",
     featured: true,
+    status: "App coming soon",
   },
   {
     title: "Blood Bridge",
     description:
       "A blood-donation platform for Bangladesh — a React Native mobile app plus a Next.js admin dashboard, containerized with Docker.",
     tags: ["Next.js", "Express.js", "React Native", "Docker"],
-    github: "https://github.com/ringku1/bloodbridge-bd",
-    live: "https://blood-bridge-admin-dev.vercel.app",
-    liveLabel: "Admin demo",
+    // Repo is private and the app isn't public yet — no links for now.
+    github: "",
+    live: "",
+    status: "App coming soon",
   },
   {
     title: "Dusk Duel",

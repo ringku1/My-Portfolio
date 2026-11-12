@@ -52,6 +52,7 @@ How a few fields behave:
 | `projects[*].featured` | Featured project gets a "Featured" badge and a wider card (spans 2 columns). |
 | `projects[*].live` / `github` | The whole card links to `live` (or `github` if there's no live URL). With no `github`, the card shows a "Private repo" label; with neither, the card isn't clickable. |
 | `projects[*].liveLabel` | Text for the live link, e.g. "Play now" (defaults to "Live demo"). |
+| `projects[*].status` | Optional note shown as a pill on the card, e.g. "App coming soon". |
 | `experience` | List most recent first. Consecutive roles at the same `company` are grouped into one card as a promotion timeline; mark the ongoing role `current: true`. |
 | `cp.highlights[0]`, `cp.platforms[0]` | Also feed the quick-facts row in the hero (e.g. "2000+ problems solved", "Codeforces Specialist"). |
 | `profile.resumeUrl` | The PDF in `public/` used by every "Resume" button. |

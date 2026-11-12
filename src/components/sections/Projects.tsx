@@ -1,11 +1,11 @@
-import { ArrowUpRight, Github, Lock, Star } from "lucide-react";
+import { ArrowUpRight, Clock, Github, Lock, Star } from "lucide-react";
 import { Section } from "@/components/Section";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { projects, type Project } from "@/data/content";
 
 function ProjectCard({ project }: { project: Project }) {
-  const { title, description, tags, github, live, liveLabel, featured } = project;
+  const { title, description, tags, github, live, liveLabel, featured, status } = project;
   // The whole card links to the live site if there is one, else the repo.
   const primary = live || github;
   const interactive = Boolean(primary);
@@ -104,6 +104,14 @@ function ProjectCard({ project }: { project: Project }) {
             <Github className="h-4 w-4" />
             Source
           </a>
+        )}
+        {status && (
+          <span className="inline-flex min-h-10 items-center">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 px-2.5 py-1 text-xs font-medium text-amber-700 dark:text-amber-400">
+              <Clock className="h-3.5 w-3.5" />
+              {status}
+            </span>
+          </span>
         )}
         {!github && (
           <span className="inline-flex min-h-10 items-center gap-1.5 text-muted">
