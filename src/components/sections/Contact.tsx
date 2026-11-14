@@ -39,7 +39,7 @@ export function Contact() {
               </a>
               <CopyEmailButton email={profile.email} />
             </div>
-            <SocialLinks />
+            <SocialLinks showEmail={false} />
           </div>
         </div>
       </Reveal>

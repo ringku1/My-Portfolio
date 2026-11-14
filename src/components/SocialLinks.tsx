@@ -10,15 +10,22 @@ const links = [
 type SocialLinksProps = {
   size?: "sm" | "md";
   className?: string;
+  /** Set false where a dedicated email button is already shown. */
+  showEmail?: boolean;
 };
 
-export function SocialLinks({ size = "md", className = "" }: SocialLinksProps) {
+export function SocialLinks({
+  size = "md",
+  className = "",
+  showEmail = true,
+}: SocialLinksProps) {
   const box = size === "sm" ? "h-9 w-9" : "h-11 w-11";
   const icon = size === "sm" ? "h-[18px] w-[18px]" : "h-5 w-5";
+  const shown = showEmail ? links : links.filter((l) => l.label !== "Email");
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      {links.map(({ label, href, Icon, external }) => (
+      {shown.map(({ label, href, Icon, external }) => (
         <a
           key={label}
           href={href}
